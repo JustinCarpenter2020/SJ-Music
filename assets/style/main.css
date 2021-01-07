@@ -10695,4 +10695,17 @@ main {
   flex-grow: 1;
 }
 
+.song{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: ;
+}
+
+.naval{
+  background-color: #D6ED17FF;
+}
+
+.background{
+  background-color: #606060FF;
+}
 /*# sourceMappingURL=main.css.map */

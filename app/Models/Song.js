@@ -12,7 +12,7 @@ export default class Song {
 
   get Template() {
     return `
-    <div class="card">
+    <div class=" text-center">
     <div class="card-body"  onclick="app.songsController.getSong(${this.id})">
     <img src="${this.albumArt}">
         <h4 class="card-title">${this.artist}</h4>
