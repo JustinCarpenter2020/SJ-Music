@@ -15,7 +15,14 @@ template += song.Template
  }
 
 /**Draws the Users saved songs to the page */
-function _drawPlaylist() { }
+function _drawPlaylist() { 
+  let ourSongs = ProxyState.playlist
+  let template = ""
+ourSongs.forEach(song => {
+  template += song.playlistTemplate
+})
+  document.getElementById('playlist').innerHTML = template
+}
 
 function _drawActive(){
   let template = ""
@@ -29,10 +36,20 @@ function _drawActive(){
 export default class SongsController {
   constructor() {
     //TODO Don't forget to register your listeners and get your data
-    console.log("helle")
     ProxyState.on('songs', _drawResults)
     ProxyState.on('activeSong', _drawActive)
+    ProxyState.on('playlist', _drawPlaylist)
+
+    this.getAllSongs()
   }
+
+getAllSongs(){
+  try {
+    songService.getAllSongs()
+  } catch (error) {
+    console.error(error)
+  }
+}
 
   /**Takes in the form submission event and sends the query to the service */
   search(e) {
@@ -47,19 +64,31 @@ export default class SongsController {
 
   /**
    * Takes in a song id and sends it to the service in order to add it to the users playlist
-   * @param {string} id
+  //  * @param {string} id
    */
-  addSong(id) { }
+  addSong() {
+  try{
+    songService.addSong()
+  } catch (error) {
+    console.error(error)
+  }
+   }
 
   /**
    * Takes in a song id to be removed from the users playlist and sends it to the server
    * @param {string} id
    */
-  removeSong(id) { }
+  removeSong(id) {
+   try {
+     songService.removeSong(id)
+   } catch (error) {
+     console.error(error)
+   }
+  }
 
-  getSong(_id) {
+  getSong(id) {
     try {
-      songService.getSongs(_id)
+      songService.getSongs(id)
     } catch (error) {
       console.error(error)
     }
