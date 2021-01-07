@@ -21,7 +21,9 @@ class SongsService {
     });
   }
  async getSongs(_id) {
-    let res = await this.getMusicByQuery(_id)
+   let music = ProxyState.songs.find(s => s._id == _id)
+   console.log(music)
+ ProxyState.activeSong = music
   }
   
   /**

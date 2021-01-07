@@ -12,8 +12,8 @@ export default class Song {
 
   get Template() {
     return `
-    <div class="card" onclick="app.songsController.getSong()">
-    <div class="card-body">
+    <div class="card">
+    <div class="card-body"  onclick="app.songsController.getSong(${this._id})">
     <img src="${this.albumArt}">
         <h4 class="card-title">${this.artist}</h4>
         <p class="card-text">${this.title}</p>
@@ -39,7 +39,7 @@ export default class Song {
                     <h1>${this.artist} - ${this.title}</h1>
                     <div class="card-body">
                         <h4 class="card-title">${this.album} | ${this.price} </h4>
-                        <audio src="${this.preview}"></audio>
+                        <audio controls src="${this.preview}"></audio>
                     </div>
                 </div>
     
