@@ -3,6 +3,7 @@ import Song from "../Models/Song.js";
 import { sandBoxApi } from "./AxiosService.js";
 
 class SongsService {
+
   /**
    * Takes in a search query and retrieves the results that will be put in the store
    * @param {string} query
@@ -34,7 +35,8 @@ class SongsService {
    */
   addSong(id) {
     //TODO you only have an id, you will need to find it in the store before you can post it
-    //TODO After posting it what should you do?
+    //TODO After posting it what should you do? 
+    // NOTE post, update api, redraw(ProxyState)
   }
 
   /**

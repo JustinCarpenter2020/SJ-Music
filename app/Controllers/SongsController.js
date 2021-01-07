@@ -1,16 +1,32 @@
+import { ProxyState } from "../AppState.js";
+import Song from "../Models/Song.js";
 import songService from "../Services/SongsService.js";
 
 //Private
 /**Draws the Search results to the page */
-function _drawResults() { }
+function _drawResults() {
+  let songs = ProxyState.songs
+  let template = ""
+  songs.forEach(song => {
+template += song.Template
+
+  })
+  document.getElementById("songs").innerHTML = template 
+ }
 
 /**Draws the Users saved songs to the page */
 function _drawPlaylist() { }
 
 //Public
+
+function _drawActive(){
+  
+}
 export default class SongsController {
   constructor() {
     //TODO Don't forget to register your listeners and get your data
+    console.log("helle")
+    ProxyState.on('songs', _drawResults)
   }
 
   /**Takes in the form submission event and sends the query to the service */
