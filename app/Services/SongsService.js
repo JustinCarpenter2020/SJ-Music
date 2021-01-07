@@ -3,7 +3,7 @@ import Song from "../Models/Song.js";
 import { sandBoxApi } from "./AxiosService.js";
 
 class SongsService {
-
+  
   /**
    * Takes in a search query and retrieves the results that will be put in the store
    * @param {string} query
@@ -13,14 +13,17 @@ class SongsService {
     let url = "https://itunes.apple.com/search?callback=?&term=" + query;
     // @ts-ignore
     $.getJSON(url)
-      .then(res => {
-        ProxyState.songs = res.results.map(rawData => new Song(rawData));
-      })
-      .catch(err => {
-        throw new Error(err);
-      });
+    .then(res => {
+      ProxyState.songs = res.results.map(rawData => new Song(rawData));
+    })
+    .catch(err => {
+      throw new Error(err);
+    });
   }
-
+ async getSongs(_id) {
+    let res = await this.getMusicByQuery(_id)
+  }
+  
   /**
    * Retrieves the saved list of songs from the sandbox
    */

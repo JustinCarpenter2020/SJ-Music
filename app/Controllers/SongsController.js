@@ -17,16 +17,21 @@ template += song.Template
 /**Draws the Users saved songs to the page */
 function _drawPlaylist() { }
 
-//Public
-
 function _drawActive(){
-  
+  let template = ""
+  if(ProxyState.activeSong){
+    template = ProxyState.activeSong.activeSongTemplate
+  }
+  document.getElementById('active').innerHTML = template
 }
+
+//Public
 export default class SongsController {
   constructor() {
     //TODO Don't forget to register your listeners and get your data
     console.log("helle")
     ProxyState.on('songs', _drawResults)
+    ProxyState.on('activeSong', _drawActive)
   }
 
   /**Takes in the form submission event and sends the query to the service */
@@ -51,4 +56,12 @@ export default class SongsController {
    * @param {string} id
    */
   removeSong(id) { }
+
+  getSong(_id) {
+    try {
+      songService.getSongs(_id)
+    } catch (error) {
+      console.error(error)
+    }
+  }
 }
