@@ -27,7 +27,7 @@ export default class Song {
                         <div class="card-body">
                             <h4 class="card-title">${this.title}</h4>
                             <p class="card-text">${this.artist}</p>
-                            <button class="btn btn-danger" onclick="app.songsController.removeSong()">remove</button>
+                            <button class="btn btn-danger" onclick="app.songsController.removeSong('${this.id}')">Remove</button>
                         </div>
         `;
   }
