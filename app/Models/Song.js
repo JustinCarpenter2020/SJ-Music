@@ -12,11 +12,12 @@ export default class Song {
 
   get Template() {
     return `
-    <div class=" text-center">
+    <div class="text-center height">
     <div class="card-body"  onclick="app.songsController.getSong(${this.id})">
     <img src="${this.albumArt}">
         <h4 class="card-title">${this.artist}</h4>
         <p class="card-text">${this.title}</p>
+    </div>
     </div>
         `;
   }
@@ -40,8 +41,8 @@ export default class Song {
                     <h1>${this.artist} - ${this.title}</h1>
                     <div class="card-body">
                         <h4 class="card-title">${this.album} | ${this.price} </h4>
-                        <audio controls src="${this.preview}"></audio>
-                        <button class="btn btn-success" onclick="app.songsController.addSong()">Add to Playlist</button>
+                        <audio controls src="${this.preview}"><button class="btn btn-success" onclick="app.songsController.addSong()">Add to Playlist</button></audio>
+                        // <button class="btn btn-success" onclick="app.songsController.addSong()">Add to Playlist</button>
                       
                     </div>
                 </div>

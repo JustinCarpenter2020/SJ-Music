@@ -12,47 +12,66 @@
 
 <body class="background">
     <header>
-        <nav class="navbar naval">
-                <span class="ml-2">music-is-fun</span>
+        <nav class="navbar topnav">
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Your Playlist</button>
+                <div class="input">
+                    <form class="form-inline my-2 my-lg-0" onsubmit="app.songsController.search(event)">
+                        <input class="form-control mr-sm-2" type="text" class="form-control text-center" name="query" placeholder="Search For Music" />
+                        <button class="btn btn-success mt-1 form-control" type="submit">
+                            Search
+                        </button>
+                    </form>
+                </div>
         </nav>
     </header>
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+<div class="modal-dialog modal-dialog-centered" role="document">
+
+  <!-- Modal content-->
+  <div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title text-center" id="exampleModalCenterTitle">Your Songs:</h5>
+      </div>
+      <div class="modal-body">
+        <div class="col-md-3 ml-auto" id="playlist">
+        </div>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+
+</div>
+</div>
+    
     <main class="container-fluid">
+      
+    </div></div>
         <section class="row">
-            <div class="offset-8 col-4 pt-3">
-                <form onsubmit="app.songsController.search(event)">
-                    <input type="text" class="form-control" name="query" placeholder="Search For Music" />
-                    <button class="btn btn-success mt-1 form-control" type="submit">
-                        Search
-                    </button>
-                </form>
-            </div>
-        </section>
-        <section class="row">
-            <div class="col-3">
-                <h3 class="text-center text-white">Search Results</h3>
-                <div id="songs" class="col-12 m-0 song">
-                    <!-- template to generate -->
-                </div>
-            </div>
-            <div class="col-6 text-center" id="active">
-            </div>
-            <div class="col text-center">
-                <h3>Playlist</h3>
-                <div class="col- m-0" id="playlist">
+                    <div id="songs" class="col-12 m-0 scrolling-wrapper">
                     </div>
-                    <!-- template for playlist -->
+        </section>
+        
+        
+        <section class="row">
+            <div class="col-8 justify-content-center">
+                <div class="col-6 text-center justify-content-center active" id="active">
                 </div>
             </div>
         </section>
+        <div class="text-center">
+            <h3 class="text-white">Playlist</h3>
+            <!-- <div class="col- m-0" id="playlist">
+                </div> -->
+        </div>
     </main>
     <footer class="container-fluid bg-dark text-dark">
-        <div class="row text-center">
-            <div class="col">
-                <p><small>Made with love by Codeworks</small></p>
-            </div>
-        </div>
     </footer>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"
         integrity="sha256-XmdRbTre/3RulhYk/cOBUMpYlaAp2Rpo/s556u0OIKk=" crossorigin="anonymous"></script>
     <script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"
